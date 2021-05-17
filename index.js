@@ -7,5 +7,5 @@ import App from './App';
 import {name as appName} from './app.json';
 import Flex from './flex';
 
-AppRegistry.registerComponent(Flex);
+AppRegistry.registerComponent(appName, () => Flex);
 
