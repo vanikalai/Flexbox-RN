@@ -5,12 +5,17 @@ const Separator = () => (
   <View style={styles.separator} />
 );
 
-const UserInterface = () => {
+const UserInterface = ({route,navigation}) => {
+  const {itemId, otherParam} = route.params;
 
     const [isEnabled, setIsEnabled] = React.useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 return(
   <SafeAreaView style={styles.container}>
+    <Button title="Go to Dashboard" onPress={() => navigation.navigate('Dashboard')} />
+
+      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Text style ={{justifyContent:'center'}}>{JSON.stringify(otherParam)}</Text>
        <Switch
         trackColor={{ false: "#767577", true: "#81b0ff" }}
         thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
